@@ -1,2 +1,86 @@
-<h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
+<!-- Pills navs -->
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+  <li class="nav-item" role="presentation">
+    <%= link_to "Login", root_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to "Register", new_path, class: "nav-link active" %>
+  </li>
+</ul>
+<form class="mt-4">
+  <!-- 2 column grid layout with text inputs for the first and last names 
+  <div class="row mb-4">
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form3Example1">First name</label>
+        <input type="text" id="form3Example1" class="form-control" />
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-outline">
+        <label class="form-label" for="form3Example2">Last name</label>
+        <input type="text" id="form3Example2" class="form-control" />
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <%= form_with model: @user, url: sign_up_path do |form| %>
+     <%= form.label :email %>
+     <%= form.text_field :email, class:"form-control", placeholder:"email@exemplo.com" %>
+    <% end %>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <%= form_with model: @user, url: sign_up_path do |form|  %>
+      <%= form.label :password %>
+      <%= form.password_field :password, class:"form-control", placeholder:"Digite sua senha" %>
+    <% end %>
+  </div>
+
+  <!---Password confirmation --->
+  <div class="form-outline mb-4">
+    <%= form_with model: @user, url: sign_up_path do |form|  %>
+     <%= form.label :password_confirmation  %>
+     <%= form.password_field :password_confirmation, class:"form-control", placeholder:"Confirme sua senha" %>
+    <% end %>
+  </div>
+  <!-- Checkbox -->
+  <div class="form-check d-flex justify-content-center mb-4">
+    <input
+      class="form-check-input me-2"
+      type="checkbox"
+      value=""
+      id="form2Example33"
+      checked
+    />
+    <label class="form-check-label" for="form2Example33">
+      Subscribe to our newsletter
+    </label>
+  </div>
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-primary btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
+  </div>
+</form>
